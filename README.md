@@ -36,3 +36,7 @@ Take as much time as you need. We're expecting this will take you one or two hou
 # More Questions?
 
 Please reach, we're happy to help!
+
+# Extra
+I have tried to create static view of the first screen, and I have not added any logics yet,I have created the Accordion component from scratch using animated component.
+Demo video of the working can be seen in '/src/demo' folder
