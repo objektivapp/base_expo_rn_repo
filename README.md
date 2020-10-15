@@ -40,3 +40,8 @@ Please reach, we're happy to help!
 # Extra
 I have tried to create static view of the first screen, and I have not added any logics yet,I have created the Accordion component from scratch using animated component.
 Demo video of the working can be seen in '/src/demo' folder
+
+To run this
+1. npm install or yarn
+2. expo start 
+and then connect with android or ios device
