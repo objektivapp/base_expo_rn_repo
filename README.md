@@ -42,3 +42,12 @@ Now submit the pull request, selecting `objektivapp/base_expo_rn_repo` as the ba
 # More Questions?
 
 Please reach, we're happy to help!
+# Extra
+To start the app 
+1) run "yarn"
+2) run "npm start"
+or install apk from url : https://drive.google.com/file/d/13M0NelLq1Sqmu58QSR6ERvbuAoDoHTu5/view?usp=sharing
+
+Check video of working app in demo directory.
+
+Happy coding :) 
