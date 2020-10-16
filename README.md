@@ -42,3 +42,11 @@ Now submit the pull request, selecting `objektivapp/base_expo_rn_repo` as the ba
 # More Questions?
 
 Please reach, we're happy to help!
+
+# Extra
+I have implemented both the screenshots and added redux as well.There is demo video inside /src/demo folder also.
+To run this
+1. npm install or yarn
+2. expo start 
+and then connect with android or ios device
+:)
