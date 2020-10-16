@@ -55,7 +55,7 @@ const AccordionListItem = ({ title, children, edit = false, forceOpen = false, h
   }
 
   const bodyBackground = !open && edit ? '#606afa' : '#faf7ff'
-  const titleColor = !open && edit ? '#ffffff' : '#000000'
+  const titleColor = !open ? (edit ? '#ffffff' : '#ababad') : '#85848b'
 
   return (
     <View style={[styles.container, { backgroundColor: bodyBackground }]}>

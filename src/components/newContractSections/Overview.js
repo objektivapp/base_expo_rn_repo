@@ -1,14 +1,38 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { StyleSheet, Text, View, Image, TextInput } from 'react-native'
+import { useSelector, useDispatch } from 'react-redux'
 
 import InfoIcon from '../../../assets/info.png'
 import AlertIcon from '../../../assets/alert2x.png'
 import DatePicker from 'react-native-datepicker'
 import moment from 'moment'
 import NextSection from '../NextSection'
+import { setOverviewFormdata } from '../../redux/actions/overviewForm'
 
 const Overview = ({ handleToggle }) => {
   const [date, setdate] = useState(moment(new Date()).format('DD/MM/YYYY'))
+  const [message, setmessage] = useState('')
+  const [hasError, sethasError] = useState(false)
+  const overviewForm = useSelector((state) => state.overviewForm)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    setmessage(overviewForm.message)
+    setdate(overviewForm.date)
+  }, [])
+
+  const handleSubmit = () => {
+    console.log(message,date)
+    if (!message || !date) {
+      sethasError(true)
+      return
+    }
+    sethasError(false)
+    dispatch(setOverviewFormdata(message, date))
+    handleToggle && handleToggle(1)
+  }
+
+  const inputColor = hasError ? 'red' : '#606afa'
 
   return (
     <View>
@@ -17,8 +41,17 @@ const Overview = ({ handleToggle }) => {
         <Text style={styles.infoText}>Lorem ipsum dolar sit amet</Text>
       </View>
       <View style={[styles.row, styles.textarea1Container]}>
-        <TextInput style={styles.textarea1} multiline={true} numberOfLines={5} placeholder="I commit to..." />
-        <Image source={AlertIcon} style={styles.alertIcon} />
+        <TextInput
+          style={[styles.textarea1, { borderBottomColor: inputColor }]}
+          value={message}
+          multiline={true}
+          numberOfLines={5}
+          placeholder="I commit to..."
+          onChangeText={(text) => {
+            setmessage(text)
+          }}
+        />
+        {hasError && <Image source={AlertIcon} style={styles.alertIcon} />}
       </View>
       <View style={styles.row}>
         <Text>by </Text>
@@ -42,7 +75,8 @@ const Overview = ({ handleToggle }) => {
           }}
         />
       </View>
-      <NextSection handleOnpress={() => handleToggle(1)} />
+      <NextSection handleOnpress={handleSubmit} />
+      {/* <NextSection handleOnpress={() => handleToggle(1)} /> */}
     </View>
   )
 }
@@ -64,11 +98,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   textarea1: {
-    borderBottomColor: 'red',
     borderBottomWidth: 1,
     flex: 1,
     fontSize: 20,
     textAlignVertical: 'top',
+    marginVertical: 5,
+    color: 'gray',
   },
 
   textarea1Container: {
