@@ -44,10 +44,9 @@ Now submit the pull request, selecting `objektivapp/base_expo_rn_repo` as the ba
 Please reach, we're happy to help!
 
 # Extra
-I have tried to create static view of the first screen, and I have not added any logics yet,I have created the Accordion component from scratch using animated component.
-Demo video of the working can be seen in '/src/demo' folder
-
+I have implemented both the screenshots and added redux as well.
 To run this
 1. npm install or yarn
 2. expo start 
 and then connect with android or ios device
+:)
