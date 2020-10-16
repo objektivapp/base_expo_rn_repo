@@ -1,23 +1,27 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { View, Text, TouchableWithoutFeedback, StyleSheet, Animated, Easing, Image } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
 import EditIcon from '../../assets/edit.png'
 import DownArraow from '../../assets/down3x.png'
 import InfoIcon from '../../assets/help.png'
 
-const AccordionListItem = ({ title, children, edit = false }) => {
+const AccordionListItem = ({ title, children, edit = false, forceOpen = false, handleToggle }) => {
   const [open, setOpen] = useState(false)
   const animatedController = useRef(new Animated.Value(0)).current
   const [bodySectionHeight, setBodySectionHeight] = useState(0)
 
+  useEffect(() => {
+    if (forceOpen != open) {
+      toggleListItem()
+    }
+    return () => {
+      open && toggleListItem()
+    }
+  }, [forceOpen])
+
   const bodyHeight = animatedController.interpolate({
     inputRange: [0, 1],
     outputRange: [0, bodySectionHeight],
-  })
-
-  const arrowAngle = animatedController.interpolate({
-    inputRange: [0, 1],
-    outputRange: ['0rad', `${Math.PI}rad`],
   })
 
   const toggleListItem = () => {
@@ -55,7 +59,7 @@ const AccordionListItem = ({ title, children, edit = false }) => {
 
   return (
     <View style={[styles.container, { backgroundColor: bodyBackground }]}>
-      <TouchableWithoutFeedback onPress={() => toggleListItem()}>
+      <TouchableWithoutFeedback onPress={() => handleToggle && handleToggle()}>
         <View style={styles.titleContainer}>
           <Text style={[styles.title, { color: titleColor }]}>{title}</Text>
           {getIcon()}
@@ -99,7 +103,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     position: 'absolute',
     bottom: 0,
-    width:'100%'
+    width: '100%',
   },
   downArrow: {
     height: 15,
