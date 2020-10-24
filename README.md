@@ -45,13 +45,13 @@ Please reach, we're happy to help!
 
 # Extra
 
-- Please type below command to install node module:
+- Please type this command to install node module:
 npm install
 
-- If expo is not setup in your system, please type below command:
+- If expo is not setup in your system, please type this command:
 npm install -g expo-cli
 
-- To run this app use below command:
+- To run this app use this command:
 expo start
 
 - If you face any other dependency issue, please have a look at dependencies used in this project.
@@ -59,13 +59,13 @@ expo start
 1.  Date picker:
     npm install react-native-datepicker
 
-2.  Date formate
+2.  Date format:
     npm install moment
 
-3.  Textinput
+3.  Textinput:
     npm install reinput
 
-4.  Redux
+4.  Redux:
     npm install redux 
     npm install react-redux
 
