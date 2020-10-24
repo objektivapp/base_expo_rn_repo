@@ -42,3 +42,30 @@ Now submit the pull request, selecting `objektivapp/base_expo_rn_repo` as the ba
 # More Questions?
 
 Please reach, we're happy to help!
+
+# Extra
+
+- Please type below command to install node module:
+npm install
+
+- If expo is not setup in your system, please type below command:
+npm install -g expo-cli
+
+- To run this app use below command:
+expo start
+
+- If you face any other dependency issue, please have a look at dependencies used in this project.
+
+1.  Date picker:
+    npm install react-native-datepicker
+
+2.  Date formate
+    npm install moment
+
+3.  Textinput
+    npm install reinput
+
+4.  Redux
+    npm install redux 
+    npm install react-redux
+
